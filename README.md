@@ -1,70 +1,80 @@
-# Getting Started with Create React App
+# NASA API Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Use this link to access live site - <a href="https://nasa-api-chillbroh.netlify.app/">NASA API</a>
 
-## Available Scripts
+This project utilizes NASA APIs to display astronomy pictures of the day (APOD) and images taken by Mars rovers.
 
-In the project directory, you can run:
+Clone the repository:
+   ```bash
+   git clone https://github.com/sliitcsse/se3040-assignment02-ChillBroh.git
+   ```
+## Table of Contents
 
-### `npm start`
+- [Setup Instructions Frontend](#setup-instructions-frontend)
+- [Setup Instructions Backend](#setup-instructions-backend)
+- [Technologies Used](#technologies-used)
+- [Folder Structure](#folder-structure)
+- [Testing](#testing)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Setup Instructions Frontend
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. Navigate to the frontend directory :
+   ```bash
+   cd frontend
+   ```
+2. Install dependencies :
+   ```bash
+   npm install
+   ```
+3. Run frontend :
+   ```bash
+   npm start
+   ```
+   
+## Setup Instructions Backend
 
-### `npm test`
+1. Navigate to the backend directory :
+   ```bash
+   cd backend
+   ```
+2. Install dependencies :
+   ```bash
+   npm install
+   ```
+3. add .env file with below details to root folder  (add your details) :
+   ```bash
+   MONGO_URI = ""
+   JWT_SECRET = ""
+   NODE_ENV = "development"
+   JWT_EXPIRES_IN = "30d"
+   PORT = 
+   APP_URL = http://localhost:3000
+   ```
+4. Run backend :
+   ```bash
+   npm start
+   ```
+## Technologies Used
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **React.js**: A JavaScript library for building user interfaces.
+- **Ant Design**: A React UI library with a set of high-quality components and demos for building rich, interactive user interfaces
+- **Node.js**: JavaScript runtime for building the server-side application.
+- **Express.js**: Web application framework for building RESTful APIs.
+- **MongoDB**: NoSQL database for storing timetable, course, user, and resource data.
+- **JWT**: JSON Web Tokens for secure authentication.
+- **Postman**: API development and testing tool for interacting with the endpoints.
+- **Jest**: Testing frameworks for unit and integration testing.
 
-### `npm run build`
+## Folder Structure
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Backend
+![sample screenshot](https://github.com/sliitcsse/se3040-assignment02-ChillBroh/blob/main/screenshots/backend.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Frontend
+![sample screenshot](https://github.com/sliitcsse/se3040-assignment02-ChillBroh/blob/main/screenshots/frontend.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Testing
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. **Run Test Cases** 
+   ```bash
+   npm test
