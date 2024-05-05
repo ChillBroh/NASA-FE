@@ -4,17 +4,34 @@ import login from "../assets/login.jpg";
 import axios from "axios";
 import Loader from "../components/Loader";
 import { Form, Input } from "antd";
+import uploadFileToFirebase from "../util/UploadFilesToFIreBase";
 
 import { useState } from "react";
 
 const Register = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
+  const [file, setFile] = useState("");
 
   const onFinish = async (values) => {
     setLoading(true);
     console.log(values);
+    let uploadImg = "No Image";
     try {
+      if (
+        values.name === "" ||
+        values.email === "" ||
+        values.password === "" ||
+        values.contactNumber === ""
+      ) {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "All Fields Required!",
+        });
+        return;
+      }
+
       const result = await Swal.fire({
         title: "Do you want to Register With NASA?",
         showDenyButton: true,
@@ -22,11 +39,16 @@ const Register = () => {
         denyButtonText: "No",
       });
       if (result.isConfirmed) {
+        if (file) {
+          const response = await uploadFileToFirebase(file);
+          uploadImg = response;
+        }
         const res = await axios.post(
           "http://localhost:5000/api/v1/user/register",
           {
             userName: values.name,
             email: values.email,
+            image: uploadImg,
             password: values.password,
             mobileNo: values.contactNumber,
           }
@@ -77,7 +99,36 @@ const Register = () => {
                   <h2 className="pt-8 font-semibold text-white">
                     Explore The World With Us
                   </h2>
-
+                  <div className="mt-6 flex sm:flex-row justify-center">
+                    <label htmlFor="fileInput">
+                      <img
+                        className="rounded-full"
+                        src={
+                          file
+                            ? URL.createObjectURL(file)
+                            : "https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg"
+                        }
+                        alt="avatar"
+                        style={{
+                          width: "120px",
+                          height: "120px",
+                          cursor: "pointer",
+                        }}
+                      />
+                    </label>
+                    <input
+                      type="file"
+                      id="fileInput"
+                      name="file"
+                      style={{ display: "none" }}
+                      accept="image/*"
+                      onChange={(e) => {
+                        const file = e.target.files[0];
+                        setFile(file);
+                      }}
+                      required
+                    />
+                  </div>
                   <Form
                     name="register"
                     onFinish={onFinish}

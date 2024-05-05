@@ -6,7 +6,6 @@ import { Menu, Transition } from "@headlessui/react";
 import Swal from "sweetalert2";
 import logo from "../assets/logo.jpeg";
 import axios from "axios";
-import profile from "../assets/profile.jpg";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -70,7 +69,7 @@ const Navbar = () => {
       <div className="items-center space-x-3 hidden md:flex">
         {user ? (
           <>
-            <div className="text-xl">Hello {user.id} !</div>
+            <div className="text-xl">Hello {user.userName} !</div>
             <button className=""></button>
             <Menu as="div" className="relative inline-block text-left">
               <div>
@@ -78,7 +77,7 @@ const Navbar = () => {
                   {/* {user.name} */}
                   <img
                     className="h-12 w-12 rounded-full"
-                    src={profile}
+                    src={user.image}
                     alt=""
                   ></img>
                 </Menu.Button>
@@ -96,7 +95,7 @@ const Navbar = () => {
                 <Menu.Items className="absolute right-0 z-10 mt-2 w-40 h-auto origin-top-right rounded-md bg-black shadow-lg ring-1 ring-[#333333] ring-opacity-5 focus:outline-none">
                   <div className="py-1">
                     <h2 className="block px-4 py-2 text-sm text-[#41A4FF]">
-                      {user.id}
+                      {user.userName}
                     </h2>
                     <Menu.Item>
                       {({ active }) => (
