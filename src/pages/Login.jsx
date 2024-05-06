@@ -16,10 +16,13 @@ const Login = () => {
   const onFinish = async (values) => {
     setLoading(true);
     try {
-      const res = await axios.post("http://localhost:5000/api/v1/auth/login", {
-        userName: values.userName,
-        password: values.password,
-      });
+      const res = await axios.post(
+        "https://user-management-api-chillbroh.onrender.com/api/v1/auth/login",
+        {
+          userName: values.userName,
+          password: values.password,
+        }
+      );
 
       const decoded = jwtDecode(res.data.token);
       const originalToken = res.data.token;

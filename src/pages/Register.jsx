@@ -44,7 +44,7 @@ const Register = () => {
           uploadImg = response;
         }
         const res = await axios.post(
-          "http://localhost:5000/api/v1/user/register",
+          "https://user-management-api-chillbroh.onrender.com/api/v1/user/register",
           {
             userName: values.name,
             email: values.email,

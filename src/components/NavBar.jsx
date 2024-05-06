@@ -16,11 +16,14 @@ const Navbar = () => {
   const handleLogout = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.get("http://localhost:5000/api/v1/auth/logout", {
-        headers: {
-          Authorization: `Bearer ${originalToken}`,
-        },
-      });
+      const res = await axios.get(
+        "https://user-management-api-chillbroh.onrender.com/api/v1/auth/logout",
+        {
+          headers: {
+            Authorization: `Bearer ${originalToken}`,
+          },
+        }
+      );
       console.log(res);
 
       localStorage.removeItem("jsonwebtoken");
